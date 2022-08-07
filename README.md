@@ -22,7 +22,7 @@ Returns up to 5 variables in the following order:
 ### bitsToDouble(sign,exponentBits,fractionBits)
 Takes a combination of signbit (number. 0 for +, 1 for -), exponentBits (table of 11 bits), fractionBits (table of 52 bits) to calculate and return the corresponding double-precision IEEE 754 number
 
-# Drift-Off: Floating-point number representations
+## Drift-Off: Floating-point number representations
 The implementation of floating point numbers can cover a very big range of numbers. This comes at a cost of a few things: complexity, computing power and the fact that not every number between the smallest and highest number can be represented.
 In our example we are dealing with 64-bit (double-precision) floating point numbers, so I will use these to explain the following.
 Every 64-bit floating point number (in the IEEE 754 standard) consists of three things:
@@ -47,7 +47,7 @@ Now that we know all this, all that is left to make this possible is to understa
 
 Another very helpful sites that made the learning experience faster were [this stackoverflow reply](https://stackoverflow.com/a/57443984) and [this website that shows the binary representation](http://weitz.de/ieee/)
 
-# Restraints 
+## Restraints 
 Now that we know all of this, let's go back to the library. It is not possible do any calculations with NaN (Not a Number) to any possible number and hence it is not possible to modify/read any number with value NaN. If your number becomes NaN the information of the object has been lost. Make sure that your number never reaches exp=1024 && fraction != 0 (for example by forcefully setting an exponent bit to 0). 
 
 ## Example
